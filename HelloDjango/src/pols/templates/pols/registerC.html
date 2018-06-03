@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>답변등록</title>
+</head>
+<body>
+	{% if error_message %}<!-- 에러메세지 있는지 확인 -->
+	<p>{{error_message}}</p>
+	{% endif %}
+	<h1>{{question.question_text}}</h1>
+	<form action="" method="POST">
+	{% csrf_token%}
+	<table>
+		{{form.as_table}}
+	</table>
+	<input type="submit" value="답변등록">
+   </form>
+</body>
+</html>

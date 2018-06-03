@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+</head>
+<body>
+	<form action='' method = "post".>
+	{% csrf_token %}
+    {{form.as_p}}
+	</form>
+	<a href="{% url 'social:begin'  'google-oauth2'%}">구글로그인</a>
+</body>
+</html>

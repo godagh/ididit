@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 메뉴 버튼 -->
+	<a href="{% url 'pols:index' %}">투표 어플리케이션</a>
+	<a href="{% url 'blog:index' %}">블로그 어플리케이션</a>
+	<!-- 로그인 버튼 -->
+	{% if user.is_authenticated %}
+		<p>{{user.username}}님 환영합니다.
+		<a href="{% url 'customuser:logout' %}">로그아웃</a>
+	{% else %}
+		<a href="{% url 'customuser:sign' %}">회원가입</a>
+		<a href="{% url 'customuser:login' %}">로그인</a>
+	{% endif %}
+	<br>
+<!-- 해당 HTML파일을 확장하는 다른 HTML파일에서 확장할 수 있는 영역을 저장 -->
+	{% block content %}
+	{% endblock %}
